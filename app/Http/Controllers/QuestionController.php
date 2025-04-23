@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\RiasecQuestion;
 
-include "AllItems.php";
+
 
 class QuestionController extends Controller
 {
@@ -13,9 +14,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = getItems();
-
-        return view('QuestionManagement.dashboard', compact('questions'));
+        //
     }
 
     /**

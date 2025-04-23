@@ -3,18 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\RiasecQuestion;
 
 /**This is to access the getItems() function from the custom php file */
 include "AllItems.php";
 
 class RiasecQuestionController extends Controller
 {
+    public function result()
+    {
+        //Question IDs
+        $items = array();
+        foreach($_POST as $key => $value){
+            $items[] = $value;
+        }
+        unset($items[0]);
+        dump($items);
+
+        
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $rq = RiasecQuestion::all();
+
+        $questions = array();
+        foreach($rq as $q){
+            $questions[] = getItemsWhere('questions', $q->questions);
+        }
+
+        //dump($questions[0][0]->question);
+        return view('client.quiz', compact('questions'));
     }
 
     /**

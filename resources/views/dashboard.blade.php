@@ -8,7 +8,7 @@
         <h1>HERE BE QUESTIONS DASHBOARD</h1>
         </br>
         <button>
-            <a href="{{route('riasec.index')}}">RIASEC CODES</a>
+            <a href="{{route('user.home')}}">Log In</a>
         </button>
     <body>
 </html>
